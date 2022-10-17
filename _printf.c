@@ -35,9 +35,9 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				s = va_arg(list, char *);
-				for (k = 0; *(str + k); k++)
+				for (k = 0; *(s + k); k++)
 				{
-					_putchar(*(str + k));
+					_putchar(*(s + k));
 				}
 				break;
 			default:
@@ -48,4 +48,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (len);
-}
+
