@@ -11,8 +11,9 @@ int main(void)
 	char c = 'h';
 	_printf("%c", c);
 	printf("\n");
-	char *str = "jeff";
-	_printf("%s", str);
+	/**char *str;
+	str = "Jeff";
+	_printf("%s", str);*/
 	printf("\n");
 
 	return (0);
