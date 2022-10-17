@@ -2,27 +2,27 @@
 
 /**
  * _printf - produces output according to a format
- * @format: a char string
+ * @format: is a character string
  *
- * Return: the number of chars printed
+ * Return: the number of characters printed
  */
 
 int _printf(const char *format, ...)
 {
-	int i = 0, len = 0, c, j, k;
+	int i = 0, len = 0;
+	int c, j, k;
 	char *s;
 
 	va_list(list);
 	va_start(list, format);
 
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	while (format != NULL && format[i] != '\0')
 	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			continue;
-		}
-		format++;
 		switch (format[i])
 		{
 			case 'c':
@@ -30,23 +30,22 @@ int _printf(const char *format, ...)
 				for (j = 0; j < format[i]; j++)
 				{
 					_putchar(c);
+					break;
 				}
+				break;
 			case 's':
 				s = va_arg(list, char *);
-				for (k = 0; k < format[i]; k++)
+				for (k = 0; *(str + k); k++);
 				{
-					_putchar(s);
+					_putchar(*(str + k));
 				}
 				break;
-			case '%':
-				_putchar('%');
-				break;
 			default:
-				_putchar('%');
-				_putchar(format);
+				break;
 		}
 		len++;
 		i++;
 	}
+	va_end(list);
 	return (len);
 }
