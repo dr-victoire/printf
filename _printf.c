@@ -27,11 +27,16 @@ int _printf(const char *format, ...)
 		{
 			case 'c':
 				c = va_arg(list, int);
-				_putchar(c);
-				break;
+				for (j = 0; j < format[i]; j++)
+				{
+					_putchar(c);
+				}
 			case 's':
 				s = va_arg(list, char *);
-				_putchar(s);
+				for (k = 0; k < format[i]; k++)
+				{
+					_putchar(s);
+				}
 				break;
 			case '%':
 				_putchar('%');
