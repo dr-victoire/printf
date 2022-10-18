@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	const char *p;
-	int c, k = 0;
+	int c, k = 0,  i, j;
 	char *str;
 
 	va_list(list);
@@ -34,6 +34,14 @@ int _printf(const char *format, ...)
 			case 's':
 				str = va_arg(list, char *);
 				_putstring(str, &k);
+				break;
+			case 'd':
+				i = va_arg(list, int);
+				_putnum(i, &k);
+				break;
+			case 'i':
+				j = va_arg(list, int);
+				_putnum(j, &k);
 				break;
 			case '%':
 				_putchar('%', &k);
