@@ -1,56 +1,48 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format
- * @format: is a character string
+ * _printf - produes an output according to a format
+ * @format: the character string
  *
- * Return: the number of characters printed
+ * Return: The number of chars printed
  */
 
 int _printf(const char *format, ...)
 {
-	int i = 0, len = 0;
-	int c, j, k;
-	char *s;
+	const char *p;
+	int c, k = 0;
+	char *str;
 
 	va_list(list);
 	va_start(list, format);
-
 	if (format == NULL)
-	{
 		return (-1);
-	}
-
-	while (format != NULL && format[i] != '\0')
+	for (p = format; *p != '\0'; p++)
 	{
-		if (format[i] != '%')
+		if (*p != '%')
 		{
+			_putchar(*p, &k);
 			continue;
 		}
-		format++;
-		switch (format[i])
+		p++;
+		switch (*p)
 		{
 			case 'c':
 				c = va_arg(list, int);
-				for (j = 0; j < format[i]; j++)
-				{
-					_putchar(c);
-					break;
-				}
+				_putchar(c, &k);
 				break;
 			case 's':
-				s = va_arg(list, char *);
-				for (k = 0; *(s + k) != '\0'; k++)
-				{
-					_putchar(*(s + k));
-				}
+				str = va_arg(list, char *);
+				_putstring(str, &k);
+				break;
+			case '%':
+				_putchar('%', &k);
 				break;
 			default:
 				break;
 		}
-		len++;
-		i++;
 	}
+
 	va_end(list);
-	return (len);
+	return (k);
 }
