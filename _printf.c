@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				s = va_arg(list, char *);
-				for (k = 0; *(s + k); k++)
+				for (k = 0; *(s + k) != '\0'; k++)
 				{
 					_putchar(*(s + k));
 				}
