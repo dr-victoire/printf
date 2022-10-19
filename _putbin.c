@@ -15,6 +15,8 @@ void _putbin(int n, int *k)
 
 	while (n) /* code will run as long as n != 0 */
 	{
+		/*this part handles the decimal to binary 
+		 * conversion with bitwise operators*/
 		if (n & 1)
 			a[i] = (1 + '0');
 		else
@@ -23,6 +25,7 @@ void _putbin(int n, int *k)
 		i++;
 	}
 	i--;
+	/*prints the result of the code above with a while loop*/
 	while (i >= 0)
 	{
 		_putchar(a[i], k);
