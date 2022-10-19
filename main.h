@@ -9,6 +9,7 @@
 int _putchar(char c, int *k);
 void _putstring(char *str, int *k);
 void _putnum(int n, int *k);
+void _putbin(int n, int *k);
 int _printf(const char *format, ...);
 
 #endif /* MAIN_H */
